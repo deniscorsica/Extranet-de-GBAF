@@ -1,4 +1,9 @@
-<?php require_once("include/headerpublic.php");?>
+<?php
+session_start();
+if (isset($_SESSION['id_user']) && $_SESSION['id_user'])
+{ header('Location:user.php');
+} else {
+require_once("include/headerpublic.php");?>
 			 <div id="bloc_page">
     <div id="index">
       <h2> Bienvenue sur l'extranet de GBAF </h2>
@@ -22,4 +27,6 @@
 		</SCRIPT></p>
 			
 	        	</div>
-  <?php require_once("include/footerpublic.php");?>
+  <?php require_once("include/footerpublic.php");
+};
+?>

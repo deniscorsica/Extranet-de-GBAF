@@ -1,28 +1,59 @@
 <?php
-$title = 'Inscription';
+require  "include/verifmail.php";
+// validation formulaire
+   $civilite="Non Pénom";
+   @$nom=$_POST["nom"];
+   @$prenom=$_POST["prenom"];
+   @$email=$_POST["email"];
+   @$messages=$_POST["messages"];
+   @$valider=$_POST["valider"];
+   $email2= $email ;
+
+// Gestion des errreus 
+    if(isset($valider)){
+      if(empty($nom))
+            $message='<div class="erreur"><h4>Nom laissé vide.<h4></div>';
+      elseif(empty($prenom))
+         $message='<div class="erreur"><h4>Prénom laissé vide.<h4></div>';
+      elseif(empty($email))
+         $message='<div class="erreur"><h4>E-mail laissé vide.<h4></div>';
+	  elseif(check_email_address($email2) == false)
+		 $message='<div class="erreur"><h4>E-mail non valide.<h4></div>';
+	  elseif(!strlen(trim($messages)))
+		  $message='<div class="erreur"><h4>Message  non valide.<h4></div>';
+       else{
+		   // Resultat  du formulaire
+         $message='<div class="rappel"><b>Rappel:</b><br />';
+         $message.=$civilite.' '.ucfirst(strtolower($prenom)).' '.strtoupper($nom).'<br />';
+         $message.='Email: '.$email. '<br />';
+		 $message.='Objet: '.$_POST["objet"]. '<br />';
+		 $message.='Message: '.$messages;
+         $message.='</div>';
+      }
+   }
+
+
+ 
+?>
+<!-- Formulaire HTML  --> 	
+<?php $title = 'Contact';
 require("include/config.php");
 require_once("include/headerpublic.php");
-
 ?>
-		
 			
-		<div id="bloc_page">
-			<div id="contact"					
-		<h2>Votre message</h2>
-<?php  if(!empty($_GET['err']) && $_GET['err']== "champs") 
-				{
-					echo '<p style="color: rgb(252, 116, 106);"><strong> Veuillez remplir tous les champs. </strong></p>';  
-				} ?>
-
+			<div id="bloc_page">
+			<div id="contact">
+			<?php echo $message ?>
+			<h2>Nous contacter</h2>
 			<p>Un problème, une question ? N’hésitez pas à utiliser ce formulaire pour prendre contact avec nous !</p>
-		<div class="form">
-			<form action="submit_contact.php" method="post">
+			<div class="form"> 
+			<form name="fo" method="post" action="">
 			<div>Votre nom</div>
-			<input class="input" type="text" id="nom" name="nom" placeholder="Martin">
+			<input class="input" type="text" id="nom" name="nom" placeholder="Martin" value="<?php echo $nom?>">
 			<div>Votre prénom</div>
-			<input class="input" type="text" id="prenom" name="prenom" placeholder="Jacques">
+			<input class="input" type="text" id="prenom" name="prenom" placeholder="Jacques" value="<?php echo $prenom?>"> 
 			<div>Votre e-mail</div>
-			<input class="input" type="email" id="email" name="email" placeholder="monadresse@mail.com">
+			<input class="input" type="text" id="email" name="email" placeholder="monadresse@mail.com" value="<?php echo $email?>">
 			<div>Quel est le sujet de votre message ?</div>
 			<div class="select-wrapper"><select name="objet" id="objet"><div>
 			<option value="" disabled selected hidden>Choisissez le sujet de votre message</option>
@@ -30,9 +61,12 @@ require_once("include/headerpublic.php");
 			<option value="autre">Autre...</option>
 			</select>
 			<div><label for="message">Votre message</label></div>
-			<textarea id="message" name="message" placeholder="Bonjour, je vous contacte car...."></textarea>
+			<textarea id="messages" name="messages" placeholder="Bonjour, je vous contacte car...."> </textarea>
+			
+			
 		<button  class="bouton_connexion" type="submit" name="valider" value="Valider">Envoyer mon message</button>
 		</form>
+		
 		</div>	</div></div></div>
 <?php require_once("include/footerpublic.php");?>
  
