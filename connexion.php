@@ -8,7 +8,7 @@ if (isset($_SESSION['id_user']) && $_SESSION['id_user'])
 $title = 'Connexion';
 require("include/config.php");
 require("include/config.php");
- @$valider=$_POST["valider"];
+$valider=$_POST["valider"];
     //  Récupération de l'utilisateur et de son password
     $req = $bdd->prepare('SELECT id_user, nom, prenom, password FROM users WHERE username = ?');
     $req->execute(array($_POST['username']));
@@ -40,7 +40,7 @@ require("include/config.php");
         if(empty($_POST['username']))
         $message='<div class="erreur"><h4>Nom obligatoire<h4></div>';
 		elseif(empty($_POST['password']))
-        $message='<div class="erreur"><h4>Mot de passe Obligatoire.<h4></div>';   }
+        $message='<div class="erreur"><h4>Mot de passe obligatoire.<h4></div>';   }
    
     } 
 // Formulaire de connexion
@@ -58,30 +58,12 @@ require_once("include/headerpublic.php");
 						<input class="input" type="text" name="username" id="votrepseudo" value="<?php echo $_POST['username']?>"> <br>
 						<label for="votremdp"> Mot de passe </label> <br>
 						<input class="input" type="password" name="password" id="votremdp"value="<?php echo $_POST['password']?>"> <br>
-						<a href="password.php"> Mot de passe oublié ? </a><br>
+						<a href="password.php"><strong> Mot de passe oublié ? </strong></a><br>
 						<input class="bouton_connexion"  name="valider" type="submit" value="Connexion"> <br>
 					</form>
 				</div>
 				
-				<?php 
-				//affiche une erreur si mdp faux
-				if(!empty($_GET['err']) && $_GET['err']== "password")
-				{
-					echo '<p style="color: rgb(252, 116, 106);"><strong> Mot de passe ou pseudo incorrect ! </strong></p>'; 
-				}
-
-				// affiche une validation si mdp modifié 
-				if(!empty($_GET['ok']) && $_GET['ok']== "password")
-				{
-					echo '<p style="color: lightgreen;"><strong> Votre mot de passe a bien été modifié ! </strong> </p>'; 
-				}
-
-				// affiche une erreur si tous les champs ne sont pas remplis
-				if(!empty($_GET['err']) && $_GET['err']== "champs")
-				{
-					echo '<p style="color: red;"><strong>Veuillez remplir tous les champs.</strong></p>';  
-				}	
-				?>
+		
 
 				<div class ="nouveaumembre">
 					<p> Nouveau membre ?<br>
