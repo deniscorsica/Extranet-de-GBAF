@@ -12,15 +12,15 @@ require  "include/verifmail.php";
 // Gestion des errreus 
     if(isset($valider)){
       if(empty($nom))
-            $message='<div class="erreur"><h4>Nom laissé vide.<h4></div>';
+            $message='<div class="erreur"><h4>Nom obligatoire.<h4></div>';
       elseif(empty($prenom))
-         $message='<div class="erreur"><h4>Prénom laissé vide.<h4></div>';
+         $message='<div class="erreur"><h4>Prénom oblogatoire.<h4></div>';
       elseif(empty($email))
          $message='<div class="erreur"><h4>E-mail laissé vide.<h4></div>';
 	  elseif(check_email_address($email2) == false)
 		 $message='<div class="erreur"><h4>E-mail non valide.<h4></div>';
 	  elseif(!strlen(trim($messages)))
-		  $message='<div class="erreur"><h4>Message  non valide.<h4></div>';
+		  $message='<div class="erreur"><h4>Message obligatoire.<h4></div>';
        else{
 		   // Resultat  du formulaire
          $message='<div class="rappel"><b>Rappel:</b><br />';
@@ -49,11 +49,11 @@ require_once("include/headerpublic.php");
 			<div class="form"> 
 			<form name="fo" method="post" action="">
 			<div>Votre nom</div>
-			<input class="input" type="text" id="nom" name="nom" placeholder="Martin" value="<?php echo $nom?>">
+			<input class="input" type="text" id="nom" name="nom"  value="<?php echo $nom?>">
 			<div>Votre prénom</div>
-			<input class="input" type="text" id="prenom" name="prenom" placeholder="Jacques" value="<?php echo $prenom?>"> 
+			<input class="input" type="text" id="prenom" name="prenom"  value="<?php echo $prenom?>"> 
 			<div>Votre e-mail</div>
-			<input class="input" type="text" id="email" name="email" placeholder="monadresse@mail.com" value="<?php echo $email?>">
+			<input class="input" type="text" id="email" name="email" value="<?php echo $email?>">
 			<div>Quel est le sujet de votre message ?</div>
 			<div class="select-wrapper"><select name="objet" id="objet"><div>
 			<option value="" disabled selected hidden>Choisissez le sujet de votre message</option>
