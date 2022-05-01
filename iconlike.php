@@ -64,9 +64,13 @@ if(isset($_GET['t'], $_GET['id'], $_SESSION['id_user']) AND !empty($_GET['t']) A
                 $ins = $bdd->prepare('INSERT INTO dislikes (acteur_id, user_id) VALUES (?, ?)');
                 $ins->execute(array($getid, $sessionid));
             }
-        }
+        } 
         // Actualisation de la page après action 
-        header('Location: acteur.php?id=' .$getid);
+		echo '<script language="Javascript">
+		window.location.href = "acteur.php?id='.$getid.'";
+		</script>';
+
+		 
     } 
     else 
     {
