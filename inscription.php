@@ -37,15 +37,15 @@ require("include/config.php");
 		else
 		{
 			 if(empty($_POST['nom']))
-        $message='<div class="erreur"><h4>Nom obligatoire<h4></div>';
+        $message='<div class="erreur"><h4>Veuillez remplir votre Nom<h4></div>';
 		elseif(empty($_POST['prenom']))
-        $message='<div class="erreur"><h4>Prenom obligatoire.<h4></div>';  
+        $message='<div class="erreur"><h4>Veuillez remplir votre Prénom<h4></div>';  
 		elseif(empty($_POST['username']))
-        $message='<div class="erreur"><h4>Pseudo obligatoire.<h4></div>'; 
+        $message='<div class="erreur"><h4>Veuillez remplir votre pseudo<h4></div>'; 
 		elseif(empty($_POST['password']))
-        $message='<div class="erreur"><h4>Mot de passe obligatoire.<h4></div>'; 
+        $message='<div class="erreur"><h4>Veuillez remplir votre mot de passe<h4></div>'; 
 		elseif(empty($_POST['reponse']))
-        $message='<div class="erreur"><h4>Question secréte obligatoire.<h4></div>'; 
+        $message='<div class="erreur"><h4>Veuillez remplir votre question secréte<h4></div>'; 
 		}
 	}
 require_once("include/headerpublic.php");
@@ -59,14 +59,14 @@ require_once("include/headerpublic.php");
 				<!-- Formulaire d'inscription -->
 				<form class="fo" method="post"  action="">
 					<div>Votre nom :</div>
-					<input class="input" type="text" name="nom" value="<?php echo $_POST['nom']?>">
+					<input class="input" type="text" name="nom" placeholder="Votre Nom" value="<?php echo $_POST['nom']?>">
 					<div>Votre prénom :</div>
-					<input class="input" type="text" name="prenom" value="<?php echo $_POST['prenom']?>">
+					<input class="input" type="text" name="prenom" placeholder="Votre Prénom" value="<?php echo $_POST['prenom']?>">
 					<div>Votre pseudo :</div>
-					<input class="input" type="text" name="username" value="<?php echo $_POST['username']?>">
+					<input class="input" type="text" name="username" placeholder="Votre pseudo" value="<?php echo $_POST['username']?>">
 					<div>Votre mot de passe :</div>
-					<input class="input" type="password" name="password" value="<?php echo $_POST['password']?>">				
-					<div><Votre question secrète :</div>
+					<input class="input" type="password" name="password" placeholder="Votre mot de passe" value="<?php echo $_POST['password']?>">				
+					<div>Choix de votre question secrète :</div>
 					<select class="input" name="choix">
 						<option value="choix1">Le nom de jeune fille de votre mère</option>
 						<option value="choix2">Le nom de votre premier animal de compagnie</option>
@@ -74,7 +74,7 @@ require_once("include/headerpublic.php");
 						<option value="choix4">La Ville de votre naissance </option>
 					</select> <br>
 					<div>Réponse à la question secrète :</div>
-					<input class="input" type="text" name="reponse" value="<?php echo $_POST['reponse']?>">
+					<input class="input" type="text" name="reponse" placeholder="Votre question secrète" value="<?php echo $_POST['reponse']?>">
 					<input class="bouton_connexion" type="submit" name="valider" value="Valider">
 				</form>
 			</div>
