@@ -3,10 +3,8 @@ session_start();
 if (isset($_SESSION['id_user']) && $_SESSION['id_user'])
 { header('Location:user.php');
 } else {
-
 // connexion mysql
 $title = 'Connexion';
-require("include/config.php");
 require("include/config.php");
 $valider=$_POST["valider"];
     //  Récupération de l'utilisateur et de son password
@@ -38,9 +36,9 @@ $valider=$_POST["valider"];
     {
 		if(isset($valider)){
         if(empty($_POST['username']))
-        $message='<div class="erreur"><h4>Nom obligatoire<h4></div>';
+        $message='<div class="erreur"><h4>Veuillez remplir votre pseudo<h4></div>';
 		elseif(empty($_POST['password']))
-        $message='<div class="erreur"><h4>Mot de passe obligatoire.<h4></div>';   }
+        $message='<div class="erreur"><h4>Veuillez remplir votre mot de passe<h4></div>';   }
    
     } 
 // Formulaire de connexion
@@ -55,9 +53,9 @@ require_once("include/headerpublic.php");
 				<div class="form">
 					<form name="fo" method="post" action="">
 						<label for="votrepseudo"> Pseudo </label> <br>
-						<input class="input" type="text" name="username" id="votrepseudo" value="<?php echo $_POST['username']?>"> <br>
+						<input class="input" type="text" name="username" id="votrepseudo"  placeholder="Votre pseudo" value="<?php echo $_POST['username']?>"> <br>
 						<label for="votremdp"> Mot de passe </label> <br>
-						<input class="input" type="password" name="password" id="votremdp"value="<?php echo $_POST['password']?>"> <br>
+						<input class="input" type="password" name="password" id="votremdp" placeholder="Votre mot de passe" value="<?php echo $_POST['password']?>"> <br>
 						<a href="password.php"><strong> Mot de passe oublié ? </strong></a><br>
 						<input class="bouton_connexion"  name="valider" type="submit" value="Connexion"> <br>
 					</form>
