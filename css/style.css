@@ -23,6 +23,24 @@ h1
     text-align: center;
 }
 
+
+ .erreur{
+            font:12pt arial;
+            color:#DD0000;
+            background-color:#EEEEEE;
+            padding:10px;
+            border-radius:10px;
+            margin-bottom:10px;
+         }
+ .rappel{
+            font:12pt arial;
+            color:#888888;
+            background-color:#EEEEEE;
+            padding:10px;
+            border-radius:10px;
+            margin-bottom:10px;
+         }
+
 .logo
 {
     float: left;
@@ -425,6 +443,12 @@ transform: scale(0.8) ;
     border: none;
     border: 2px solid rgba(253, 140, 140, 0.575);
 
+}
+
+input::placeholder
+{
+     font-family:"Courier New", Courier, monospace;
+	 font-size:12px;	 
 }
 
 select
