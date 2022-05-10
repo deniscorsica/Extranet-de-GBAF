@@ -7,9 +7,7 @@ if(empty($_SESSION['id_user']) AND empty($_SESSION['pseudo']) AND empty($_SESSIO
 }
 else 
 {
-?>
-
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="fr">
 <!-- Header connecté -->
     <head>
@@ -17,12 +15,10 @@ else
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php 
             if(!empty($title))
-            {
-        ?>
+        {?>
         <title><?= $title; }?></title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
-
-    </head>
+ </head>
     <body>
         <header>
             <a href="user.php">
@@ -31,17 +27,21 @@ else
                 </div>
             </a>
             <div id="nomsession"><!-- On affiche nom prénom session --> 
-                <button class="bouton_nom">
-                    <?php
-                        echo '<img class="iconlog" src="img/iconlog2.png" alt="iconelog"/> ' . $_SESSION['nom'] .' '. $_SESSION['prenom'] ;
-                    ?>
-                </button>    
-                <button class="bouton_parametre" onclick= "window.location.href = 'parametres.php';"> Paramètres du compte 
-                </button> 
-                <button class="bouton_deconnexion" onclick= "window.location.href = 'deconnexion.php';"> Déconnexion 
-                </button> 
-                    <?php
-                    }
-                    ?>
+            <button class="bouton_nom">
+            <?php
+                echo '<img class="iconlog" src="img/iconlog2.png" alt="iconelog"/> ' . $_SESSION['nom'] .' '. $_SESSION['prenom'] ;
+            ?>
+            </button>
+				<button class="bouton_parametre" onclick= "window.location.href = 'index.php';"> Accueil
+			</button> 				
+                <button class="bouton_parametre" onclick= "window.location.href = 'parametres.php';"> Vos informations et paramètres
+            </button> 
+			 <button class="bouton_parametre" onclick= "window.location.href = 'mentionslegales.php';"> Mentions legales
+            </button> 
+			    <button class="bouton_deconnexion" onclick= "window.location.href = 'deconnexion.php';"> Déconnexion 
+            </button> 
+            <?php
+				}
+            ?>
             </div>
         </header>
