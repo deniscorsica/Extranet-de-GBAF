@@ -4,9 +4,11 @@ if (isset($_SESSION['id_user']) && $_SESSION['id_user'])
 { header('Location:user.php');
 } else {
 ob_start();
+
 // connexion à Mysql
 $title = 'Mot de passe oublié';
 require("include/config.php");
+require ("include/fonction.php");
 require_once("include/headerpublic.php");
 
 //Ici on submit 
@@ -37,7 +39,7 @@ if (isset($_POST['submit']))
             $_SESSION['nom']= $resultat['nom'];
             $_SESSION['prenom']= $resultat['prenom'];
           
-      {		// on hach le password
+      {		// Hash du password
 			$newpassword = password_hash($_POST['newpassword'], PASSWORD_DEFAULT);
 			$insertpassword = $bdd->prepare("UPDATE users SET password = ? WHERE id_user = ?");
 			$insertpassword->execute(array($newpassword, $_SESSION['id_user']));
@@ -76,6 +78,6 @@ if (isset($_POST['submit']))
            
         </div>
 <?php 
-require_once('include/footerpublic.php');
+require_once('include/footer.php');
 };
 ?>  
