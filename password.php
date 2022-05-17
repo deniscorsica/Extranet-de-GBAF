@@ -54,7 +54,7 @@ if (isset($_POST['submit']))
 		elseif(empty($_POST['reponse_secrete']))
         $message='<div class="erreur"><h4>veuillez remplir votre question secrète<h4></div>';  
 		elseif(empty($_POST['newpassword']))
-        $message='<div class="erreur"><h4>Veuillez remplir votre mot de passe<h4></div>'; 		
+        $message='<div class="erreur"><h4>Veuillez remplir votre nouveau  mot de passe<h4></div>'; 		
 		
     }       
 }
@@ -70,8 +70,8 @@ if (isset($_POST['submit']))
                  <br>
                 <label for="reponse_secrete">Réponse à la question secrète </label>
                 <input class="input" type="text" name="reponse_secrete" id="reponse_secrete" placeholder="Votre question secrète" value="<?php echo $_POST['reponse_secrete']?>"><br>
-				<label for="password">Mot de passe </label>
-               <input class="input" type="password" name="newpassword" id="newpassword" placeholder="Votre mot de passe" id="password"/>
+				<label for="password">Nouveau mot de passe </label>
+               <input class="input" type="password" name="newpassword" id="newpassword" placeholder="Votre nouveau  mot de passe" id="password"/>
                <?php if(isset($okpassword)) { echo $okpassword; } ?>
                 <input class="bouton_connexion" type="submit" value="Valider" name="submit"> <br>
             </form>
@@ -80,4 +80,4 @@ if (isset($_POST['submit']))
 <?php 
 require_once('include/footer.php');
 };
-?>  
+?>
