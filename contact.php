@@ -1,6 +1,7 @@
 <?php
 require("include/config.php");
 require ("include/fonction.php");
+$title = 'contact';
 // validation formulaire
    $civilite="Non Pénom";
    $nom=htmlspecialchars($_POST["nom"]);
@@ -23,13 +24,14 @@ require ("include/fonction.php");
 	  elseif(!strlen(trim($messages)))
 		  $message='<div class="erreur"><h4>Veuillez remplir votre message<h4></div>';
        else{
-		   // Resultat  du formulaire
+	   // Resultat  du formulaire
          $message='<div class="rappel"><b>Rappel:</b><br />';
          $message.=$civilite.' '.ucfirst(strtolower($prenom)).' '.strtoupper($nom).'<br />';
          $message.='Email: '.$email. '<br />';
 		 $message.='Objet: '.$_POST["objet"]. '<br />';
 		 $message.='Message: '.$messages;
          $message.='</div>';
+mail($destinataire, $subject, $message, $headers);
       }
    }
 
