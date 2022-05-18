@@ -64,14 +64,14 @@ if (isset($_POST['submit']))
         <div id="login">
 		<h2>Mot de passe oublié</h2>
 		<?php echo $message ?>
-            <form class="form" method="post" action="">
-                <label for="username"> Votre pseudo </label> <br>
+            <form class="form" method="post" action="password.php">
+                <label> Votre pseudo </label> <br>
                 <input class="input" type="text" name="username" id="username" placeholder="Votre pseudo" value="<?php echo $_POST['username']?>">
                  <br>
-                <label for="reponse_secrete">Réponse à la question secrète </label>
+                <label>Réponse à la question secrète </label>
                 <input class="input" type="text" name="reponse_secrete" id="reponse_secrete" placeholder="Votre question secrète" value="<?php echo $_POST['reponse_secrete']?>"><br>
-				<label for="password">Nouveau mot de passe </label>
-               <input class="input" type="password" name="newpassword" id="newpassword" placeholder="Votre nouveau  mot de passe" id="password"/>
+				<label>Nouveau mot de passe </label>
+               <input class="input" type="password" name="newpassword" id="newpassword" placeholder="Votre nouveau mot de passe">
                <?php if(isset($okpassword)) { echo $okpassword; } ?>
                 <input class="bouton_connexion" type="submit" value="Valider" name="submit"> <br>
             </form>
@@ -80,4 +80,4 @@ if (isset($_POST['submit']))
 <?php 
 require_once('include/footer.php');
 };
-?>
+?>  

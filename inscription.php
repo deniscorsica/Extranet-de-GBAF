@@ -1,10 +1,8 @@
 <?php
 session_start();
 $title = 'Inscription';
+require ("include/fonction.php");
 require("include/config.php");
-	// vérification 
-
-	require("include/config.php");
 	// vérification 
 	if (isset($_POST['valider'])) 
 	{
@@ -57,7 +55,7 @@ require_once("include/headerpublic.php");
 				<h2>Inscription</h2> 
 				
 				<!-- Formulaire d'inscription -->
-				<form class="fo" method="post"  action="">
+				<form class="form" method="post"  action="inscription.php">
 					<div>Votre nom :</div>
 					<input class="input" type="text" name="nom" placeholder="Votre Nom" value="<?php echo $_POST['nom']?>">
 					<div>Votre prénom :</div>
@@ -80,6 +78,6 @@ require_once("include/headerpublic.php");
 			</div>
 		</div>
 <?php 
-require_once('include/footerpublic.php');
+require_once('include/footer.php');
 
 ?> 
