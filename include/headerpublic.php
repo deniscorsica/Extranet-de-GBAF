@@ -4,7 +4,11 @@
 	<head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Acceuil</title>
+        <?php 
+            if(!empty($title))
+        {?>
+        <title><?= $title; }?></title>
+
         <link rel="stylesheet" type="text/css" href="css/gbaf.css">
     	</head>
 <!-- Header Public -->	
