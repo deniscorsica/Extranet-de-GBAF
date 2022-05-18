@@ -4,6 +4,7 @@ require ("include/fonction.php");
 if (isset($_SESSION['id_user']) && $_SESSION['id_user'])
 { header('Location:user.php');
 } else {
+$title = 'accueil';
 require_once("include/headerpublic.php");?>
 <div id="bloc_page">
     <div id="index">
