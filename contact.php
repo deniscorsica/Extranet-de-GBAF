@@ -1,6 +1,6 @@
 <?php
 require("include/config.php");
-require ("include/verifmail.php");
+require ("include/fonction.php");
 // validation formulaire
    $civilite="Non Pénom";
    $nom=htmlspecialchars($_POST["nom"]);
@@ -38,7 +38,6 @@ require ("include/verifmail.php");
 ?>
 <!-- Formulaire HTML  --> 	
 <?php $title = 'Contact';
-require("include/config.php");
 require_once("include/headerpublic.php");
 ?>
 			
@@ -48,24 +47,24 @@ require_once("include/headerpublic.php");
 			<h2>Nous contacter</h2>
 			<p>Un problème, une question ? N’hésitez pas à utiliser ce formulaire pour prendre contact avec nous !</p>
 			<div class="form"> 
-		<form name="fo" method="post" action="">
-			<div>Votre nom</div>
-			<input class="input" type="text" id="nom" name="nom"  placeholder="Votre Nom" value="<?php echo $nom?>">
-			<div>Votre prénom</div>
-			<input class="input" type="text" id="prenom" name="prenom" placeholder="Votre Prénom"  value="<?php echo $prenom?>"> 
-			<div>Votre e-mail</div>
-			<input class="input" type="text" id="email" name="email"  placeholder="Votre e-mail" value="<?php echo $email?>">
-			<div>Quel est le sujet de votre message ?</div>
-			<div class="select-wrapper"><select name="objet" id="objet"><div>
+		<form  method="post" action="contact.php">
+			<label>Votre nom</label>
+			<input class="input" type="text" id="nom" name="nom"  placeholder="Votre Nom" value="<?php echo $nom?>"><br>
+			<label>Votre prénom</label>
+			<input class="input" type="text" id="prenom" name="prenom" placeholder="Votre Prénom"  value="<?php echo $prenom?>"><br> 
+			<label>Votre e-mail</label>
+			<input class="input" type="text" id="email" name="email"  placeholder="Votre e-mail" value="<?php echo $email?>"><br>
+			<label>Quel est le sujet de votre message ?</label>
+			<select name="objet" id="objet">
 			<option value="" disabled selected hidden>Choisissez le sujet de votre message</option>
 			<option value="probleme-compte">Problème avec mon compte</option>
 			<option value="autre">Autre...</option>
 			</select>
-			<div><label for="message">Votre message</label></div>
+			
 			<textarea id="messages" name="messages" placeholder="Votre message" ></textarea>
 			<button  class="bouton_connexion" type="submit" name="valider" value="Valider">Envoyer mon message</button>
-		</form>
+		</form></div>
 		
-		</div>	</div></div></div>
-<?php require_once("include/footerpublic.php");?>
+		</div>	</div>
+<?php require_once("include/footer.php");?>
  
