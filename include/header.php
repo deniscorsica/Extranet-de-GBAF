@@ -23,7 +23,7 @@ else
         <header>
             <a href="user.php">
                 <div id="logo">
-                    <img class="logo" src="img/logo-gbaf.png" alt="logo">
+                    <img class="logo" src="img/logo-gbaf.png" alt="">
                 </div>
             </a>
             <div id="nomsession"><!-- On affiche nom prénom session --> 
@@ -32,16 +32,15 @@ else
                 echo '<img class="iconlog" src="img/iconlog2.png" alt="iconelog"/> ' . $_SESSION['nom'] .' '. $_SESSION['prenom'] ;
             ?>
             </button>
-				<button class="bouton_parametre" onclick= "window.location.href = 'index.php';"> Accueil
-			</button> 				
-                <button class="bouton_parametre" onclick= "window.location.href = 'parametres.php';"> Vos informations et paramètres
+		<button class="bouton_parametre" onclick= "window.location.href = 'index.php';"> Accueil
+	     </button> 				
+            	<button class="bouton_parametre" onclick= "window.location.href = 'parametres.php';"> Vos informations et paramètres
             </button> 
-			 <button class="bouton_parametre" onclick= "window.location.href = 'mentionslegales.php';"> Mentions legales
-            </button> 
-			    <button class="bouton_deconnexion" onclick= "window.location.href = 'deconnexion.php';"> Déconnexion 
+		
+	<button class="bouton_deconnexion" onclick= "window.location.href = 'deconnexion.php';"> Déconnexion 
             </button> 
             <?php
-				}
+		}
             ?>
             </div>
         </header>
