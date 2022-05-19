@@ -3,7 +3,7 @@ require("include/config.php");
 require ("include/fonction.php");
 $title = 'contact';
 // validation formulaire
-   $civilite="Non Pénom";
+   $civilite="Non Pénom :";
    $nom=htmlspecialchars($_POST["nom"]);
    $prenom=htmlspecialchars($_POST["prenom"]);
    $email=htmlspecialchars($_POST["email"]);
@@ -31,7 +31,23 @@ $title = 'contact';
 		 $message.='Objet: '.$_POST["objet"]. '<br />';
 		 $message.='Message: '.$messages;
          $message.='</div>';
-mail($destinataire, $subject, $message, $headers);
+//tout est correctement renseigné, on envoi le mail
+		$VotreAdresseMail="denis@informatique-91.com";
+                    //on renseigne les entêtes de la fonction mail de PHP
+                    $Entetes = "MIME-Version: 1.0\r\n";
+                    $Entetes .= "Content-type: text/html; charset=UTF-8\r\n";
+                    $Entetes .= "From: Extranet de GBAF <".$_POST['email'].">\r\n";
+                    $Entetes .= "Reply-To: Extranet de GBAF <".$_POST['email'].">\r\n";
+                    //on prépare les champs:
+                    $Mail=$_POST['email']; 
+                    $Sujet='=?UTF-8?B?'.base64_encode($_POST['objet']).'?=';
+		    $Message='<div class="rappel"><b>Rappel:</b><br />';		    
+		    $Message.=$civilite.' '.ucfirst(strtolower($prenom)).' '.strtoupper($nom).'<br />';
+                    $Message.=htmlentities($_POST['objet'],ENT_QUOTES,"UTF-8");
+		    $Message.=htmlentities($_POST['messages'],ENT_QUOTES,"UTF-8");                 
+ //en fin, on envoi le mail
+                     mail($VotreAdresseMail, $Sujet, nl2br($Message), $Entetes);
+
       }
    }
 
