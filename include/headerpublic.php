@@ -14,10 +14,10 @@
 <!-- Header Public -->	
 <body>
 	<header>
-	
+	<a href="index.php">
 	<div id="logo">
-         <img class="logo" src="img/logo-gbaf.png" alt="logo">
-       <a href="connexion.php"></a>
+         <img class="logo" src="img/logo-gbaf.png" alt="">
          </div>
+	</a>
 	<?php nav();?>
 	</header>	
